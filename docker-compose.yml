@@ -1,0 +1,24 @@
+# docker-compose.yml
+version: '3.4'
+services:
+  myimage:
+    build:
+      dockerfile: Dockerfile
+    container_name: myproject
+    volumes:
+      - "./config:/etc/odoo"
+      - "./your_project/your-addons:/mnt/extra-addons/your-addons"
+      - "./your_project/extra-addons:/mnt/extra-addons/extra-addons"
+    command:
+      [
+        "sh",
+        "-c",
+        "pip3 install -r /etc/odoo/requirements.txt && python3 -m debugpy --listen 0.0.0.0:5680 /usr/bin/odoo -c /etc/odoo/odoo.conf --dev xml"
+      ]
+    ports:
+      - "5680:5680"
+      - "8069:8069"
+networks:
+  default:
+    name: my-network
+    external: true

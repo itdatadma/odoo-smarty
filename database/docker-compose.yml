@@ -1,0 +1,21 @@
+version: '3.4'
+
+services:
+  postgres:
+    image: postgres:14.9
+    restart: always
+    container_name: postgres_14_09
+    environment:
+      POSTGRES_PASSWORD: yourpassplease
+    volumes:
+      - pg1409:/var/lib/postgresql
+      - pg1409_data:/var/lib/postgresql/data
+
+networks:
+  default:
+    name: my-network
+    external: true
+
+volumes:
+  pg1409:
+  pg1409_data:

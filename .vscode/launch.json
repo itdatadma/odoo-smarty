@@ -1,0 +1,23 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Your Launcher",
+            "type": "python",
+            "request": "attach",
+            "pathMappings": [
+                {
+                    "localRoot": "${workspaceFolder}/your-project/extra-addons",
+                    "remoteRoot": "/mnt/extra-addons/extra-addons"
+                }, {
+                    "localRoot": "${workspaceFolder}/your-project/your-addons",
+                    "remoteRoot": "/mnt/extra-addons/your-addons"
+                }
+            ],
+            "port": 8069,
+            "debugServer": 5680,
+            "host": "0.0.0.0",
+            "justMyCode":false,
+        }
+    ]
+}

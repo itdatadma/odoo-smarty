@@ -1,0 +1,28 @@
+<!-- filepath: custom_double_bill/reports/sale_report.xml -->
+<odoo>
+    <template id="report_saleorder_document">
+        <t t-call="sale.report_saleorder_document">
+            <t t-foreach="docs" t-as="o">
+                <div class="page">
+                    <t t-call="sale.report_saleorder_document"/>
+                </div>
+                <div class="page">
+                    <t t-call="sale.report_saleorder_document"/>
+                    <footer>
+                        <p>COPIE DU COMMERCANT</p>
+                    </footer>
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <report
+        id="action_report_saleorder"
+        model="sale.order"
+        string="Sale Order"
+        report_type="qweb-pdf"
+        name="custom_double_bill.report_saleorder_document"
+        file="custom_double_bill.report_saleorder_document"
+        print_report_name="'Sale Order - %s' % (object.name)"
+    />
+</odoo>

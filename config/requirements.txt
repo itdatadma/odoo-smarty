@@ -1,0 +1,13 @@
+# requirements.txt
+# You can add here the various libraries that are useful in your project. 
+# debugpy is used for debugging in a container.
+#
+#
+#
+#
+#
+#
+#
+# ugw9-n27h-jg79
+#
+debugpy
